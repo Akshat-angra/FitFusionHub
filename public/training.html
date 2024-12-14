@@ -1,10 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Training | FitFusionHub</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Ubuntu", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: #ffffff;
+        color: #2c3e50;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadeInDown 1s ease-out;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #3498db;
+      }
+
+      .header nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .header nav a {
+        color: #2c3e50;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: color 0.4s ease;
+      }
+
+      .header nav a:hover {
+        color: #3498db;
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          transform: translateY(-50%);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 3rem auto;
+        background: #ffffff;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        animation: fadeInUp 1.2s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+        color: #2980b9;
+        text-align: center;
+        border-bottom: 2px solid #dee2e6;
+        padding-bottom: 1rem;
+        animation: zoomIn 1s ease-out;
+      }
+
+      @keyframes zoomIn {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .training-card {
+        background: #ecf0f1;
+        border: 1px solid #bdc3c7;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 1.5s ease-out;
+      }
+
+      .training-card:nth-child(even) {
+        animation: fadeInUp 1.5s ease-out 0.5s;
+      }
+
+      .training-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .training-card h2 {
+        margin-top: 0;
+        font-size: 2rem;
+        color: #34495e;
+        position: relative;
+        z-index: 1;
+        animation: slideInLeft 0.8s ease-out;
+      }
+
+      @keyframes slideInLeft {
+        0% {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .training-card p {
+        color: #7f8c8d;
+        font-size: 1.15rem;
+        position: relative;
+        z-index: 1;
+        animation: slideInRight 0.8s ease-out;
+      }
+
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        margin-top: 1.5rem;
+        color: #fff;
+        background: #e74c3c;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.4s ease, transform 0.4s ease;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1;
+        animation: pulse 2s infinite;
+      }
+
+      .button:hover {
+        background: #c0392b;
+        transform: scale(1.08);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.05);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .training-card::before {
+        content: url("https://image.flaticon.com/icons/svg/2917/2917630.svg");
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        opacity: 0.1;
+        width: 80px;
+        height: 80px;
+      }
+
+      .training-card::after {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: rgba(46, 204, 113, 0.1);
+        border-radius: 50%;
+        z-index: 0;
+        transition: transform 0.4s ease;
+      }
+
+      .training-card:hover::after {
+        transform: scale(1.3);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>FitFusionHub</h1>
+      <nav>
+        <a href="/dashboard">Home</a>
+      </nav>
+    </div>
+    <div class="container">
+      <h1>Available Training Programs</h1>
+      <div class="training-card">
+        <h2>Beginner's Fitness Program</h2>
+        <p>
+          This program is perfect for those just starting their fitness journey.
+          It includes basic workout routines, nutrition tips, and motivation
+          strategies.
+        </p>
+        <a href="program-a.html" class="button">Learn More</a>
+      </div>
+      <div class="training-card">
+        <h2>Advanced Strength Training</h2>
+        <p>
+          Designed for experienced athletes looking to enhance their strength
+          and performance. Features intense workouts, advanced nutrition plans,
+          and performance tracking.
+        </p>
+        <a href="program-b.html" class="button">Learn More</a>
+      </div>
+      <div class="training-card">
+        <h2>Weight Loss Challenge</h2>
+        <p>
+          A comprehensive plan focusing on effective weight loss through
+          personalized workouts, meal plans, and regular progress assessments.
+        </p>
+        <a href="weight-loss.html" class="button">Learn More</a>
+      </div>
+      <div class="training-card">
+        <h2>Muscle Building Program</h2>
+        <p>
+          Focuses on muscle gain through targeted exercises, high-protein diets,
+          and detailed workout schedules.
+        </p>
+        <a href="muscle-building.html" class="button">Learn More</a>
+      </div>
+    </div>
+  </body>
 </html>

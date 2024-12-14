@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login to FitFusionHub</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="navbar">
+    <nav>
+        <img src="./FitFusionHub_transparent.png" alt="FitFusion logo"/>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-items">
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+            <li><a href="#training-section">Training</a></li>
+            <li><a href="#community-section">Community</a></li>
+            <li><a href="#know-yourself-section">Know Yourself</a></li>
+        </ul>
+        <div class="login"><a href="/login">Login/Create Account</a></div>
+    </nav>
+</div>
+<hr/>
+<div class="view">
+    <a href="/">Home</a>
+</div>
+<div class="container2">
+    <div class="login-form">
+        <h1>Sign In</h1>
+        <div class="signup">
+            Don't have an account? <a href="/register">Sign Up</a>
+            <hr class="view1"/>
+        </div>
+        <form action="/login" method="POST">
+            <label for="email">Email<span class="req">REQUIRED</span></label>
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+            />
+            <label for="password"
+            >Password<span class="req">REQUIRED</span></label
+            >
+            <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+            />
+            <div class="note">Not recommended on shared computers</div>
+            <button type="submit" class="btn">Sign In</button>
+            <a href="/lostpassword" class="forgot-password"
+            >Forgot your password?</a
+            >
+        </form>
+    </div>
+</div>
+</body>
+</html>

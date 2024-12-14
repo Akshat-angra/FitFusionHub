@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitFusionHub Community Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Ubuntu", sans-serif;
+        background: linear-gradient(135deg, #e0eafc, #cfdef3);
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .header {
+        background: linear-gradient(90deg, #ff6a95, #ff9472);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+      }
+
+      .header .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        animation: slide-in 0.8s ease-out;
+      }
+
+      .header .title i {
+        margin-right: 0.5rem;
+        transform: rotate(360deg);
+        animation: rotate-icon 1.5s ease-in-out infinite;
+      }
+
+      @keyframes slide-in {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes rotate-icon {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .header .navbar .home-button {
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        animation: fade-in 1.2s ease-out;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .header .navbar .home-button::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+      }
+
+      .header .navbar .home-button:hover::after {
+        width: 100%;
+      }
+
+      .main-content {
+        padding: 2rem;
+        position: relative;
+      }
+
+      .community-section h1,
+      .events-section h1,
+      .forums-section h1 {
+        font-size: 3rem;
+        color: #ff6a95;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        animation: text-zoom 0.7s ease-out;
+      }
+
+      @keyframes text-zoom {
+        from {
+          transform: scale(0);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .community-section h1::before,
+      .events-section h1::before,
+      .forums-section h1::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6a95, #ff9472);
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.5s ease;
+      }
+
+      .community-section h1:hover::before,
+      .events-section h1:hover::before,
+      .forums-section h1:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+      }
+
+      .card {
+        background: linear-gradient(135deg, #f9f6f7, #ffffff);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        transition: transform 0.4s, box-shadow 0.4s, border-color 0.3s;
+        position: relative;
+        overflow: hidden;
+        padding: 1rem;
+        z-index: 1;
+        animation: float-in 1s ease-out;
+      }
+
+      @keyframes float-in {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 220%;
+        height: 220%;
+        background: rgba(255, 159, 159, 0.2);
+        border-radius: 50%;
+        z-index: 0;
+        transform: scale(0);
+        transition: transform 0.6s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+        border: 2px solid #ff6a95;
+      }
+
+      .card:hover::before {
+        transform: scale(1);
+      }
+
+      .card-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 4px solid #ff6a95;
+        opacity: 0;
+        animation: image-fade-in 1.2s ease-out forwards;
+      }
+
+      @keyframes image-fade-in {
+        from {
+          opacity: 0;
+          transform: scale(1.1);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .card-content {
+        padding: 1rem;
+        position: relative;
+        z-index: 1;
+        background: #ffffff;
+        border-radius: 10px;
+      }
+
+      .card-content h2 {
+        font-size: 1.6rem;
+        color: #ff6a95;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-content p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1rem;
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid #ff6a95;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(90deg, #ff6a95, #ff9472);
+        transition: background 0.3s ease, color 0.3s ease;
+        animation: btn-pop 0.8s ease;
+      }
+
+      @keyframes btn-pop {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .btn:hover {
+        background: #fff;
+        color: #ff6a95;
+      }
+
+      .btn i {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .btn:hover i {
+        transform: translateX(5px);
+      }
+
+      .event-card {
+        background: linear-gradient(135deg, #e0f7fa, #b9fbc0);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        position: relative;
+        padding: 1rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        border: 2px solid #ff6a95;
+      }
+
+      .event-card .event-date {
+        background: #ff6a95;
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .forum-card {
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .forum-card:hover {
+        border-color: #ff6a95;
+        transform: translateY(-5px);
+      }
+
+      .forum-card .forum-title {
+        background: #ff6a95;
+        color: #fff;
+        padding: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .forum-card .forum-content {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="title">
+        <i class="fas fa-dumbbell"></i>
+        FitFusionHub Community
+      </div>
+      <nav class="navbar">
+        <a href="/dashboard" class="home-button">Home</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="community-section">
+        <h1>Community</h1>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-image">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Community Image"
+              />
+            </div>
+            <div class="card-content">
+              <h2>Join the Community</h2>
+              <p>
+                Connect with like-minded fitness enthusiasts and share your
+                journey.
+              </p>
+              <a href="#" class="btn"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Community Image"
+              />
+            </div>
+            <div class="card-content">
+              <h2>Fitness Challenges</h2>
+              <p>
+                Take part in various fitness challenges and track your progress.
+              </p>
+              <a href="#" class="btn"
+                >Explore Challenges <i class="fas fa-trophy"></i
+              ></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Community Image"
+              />
+            </div>
+            <div class="card-content">
+              <h2>Expert Advice</h2>
+              <p>
+                Get tips and advice from fitness experts and trainers.
+              </p>
+              <a href="#" class="btn"
+                >Get Advice <i class="fas fa-users"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="events-section">
+        <h1>Events</h1>
+        <div class="card-container">
+          <div class="event-card">
+            <div class="event-date">August 2024</div>
+            <h2>Upcoming Marathon</h2>
+            <p>
+              Join us for the annual marathon. Push your limits and achieve your
+              fitness goals.
+            </p>
+            <a href="#" class="btn"
+              >Register Now <i class="fas fa-calendar-alt"></i
+            ></a>
+          </div>
+          <div class="event-card">
+            <div class="event-date">September 2024</div>
+            <h2>Yoga Retreat</h2>
+            <p>
+              Relax and rejuvenate with our Yoga retreat. Perfect for all levels.
+            </p>
+            <a href="#" class="btn"
+              >Join Retreat <i class="fas fa-spa"></i
+            ></a>
+          </div>
+          <div class="event-card">
+            <div class="event-date">October 2024</div>
+            <h2>Fitness Expo</h2>
+            <p>
+              Discover the latest trends in fitness and wellness at our expo.
+            </p>
+            <a href="#" class="btn"
+              >Learn More <i class="fas fa-expo"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="forums-section">
+        <h1>Forums</h1>
+        <div class="card-container">
+          <div class="forum-card">
+            <div class="forum-title">Nutrition and Diet</div>
+            <div class="forum-content">
+              <p>
+                Discuss nutrition tips, diet plans, and recipes with our
+                community members.
+              </p>
+              <a href="#" class="btn"
+                >Join Discussion <i class="fas fa-comments"></i
+              ></a>
+            </div>
+          </div>
+          <div class="forum-card">
+            <div class="forum-title">Workout Routines</div>
+            <div class="forum-content">
+              <p>
+                Share your workout routines and get advice on improving your
+                exercise regimen.
+              </p>
+              <a href="#" class="btn"
+                >Join Discussion <i class="fas fa-dumbbell"></i
+              ></a>
+            </div>
+          </div>
+          <div class="forum-card">
+            <div class="forum-title">Mental Health</div>
+            <div class="forum-content">
+              <p>
+                Talk about mental health, motivation, and overcoming fitness
+                challenges.
+              </p>
+              <a href="#" class="btn"
+                >Join Discussion <i class="fas fa-brain"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

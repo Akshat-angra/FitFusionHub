@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home for Unlogged Users | FitFusionHub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="hidden-container" id="hiddenContainer">
+      <div class="hidden-content">
+        <span class="close" onclick="closeHiddenContainer()">&times;</span>
+        <h3>Welcome to FitFusionHub!</h3>
+        <p>Please login to access exclusive content and features.</p>
+        <p>Join our community and enhance your experience.</p>
+        <a href="/login" class="login-btn">Login</a>
+      </div>
+    </div>
+
+    <div class="loader">
+      <div class="loader-logo">
+        <img src="./FitFusionHub_transparent.png" alt="FitFusion logo" />
+      </div>
+      <div class="loader-text">Loading...</div>
+    </div>
+
+    <div class="navbar">
+      <nav>
+        <img src="./FitFusionHub_transparent.png" alt="FitFusion logo" />
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-items">
+          <li><a href="/">Home</a></li>
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+          <li><a href="#training-section">Training</a></li>
+          <li><a href="/community-page">Community</a></li>
+          <li><a href="#know-yourself-section">Know Yourself</a></li>
+        </ul>
+        <div class="login"><a href="/login">Login/Create Account</a></div>
+      </nav>
+    </div>
+    <hr />
+
+    <main>
+      <div class="hero-section">
+        <div class="hero-content">
+          <h2>TIME TO MEET YOUR NEW FITNESS TRACKER</h2>
+          <h1>FitFusionHub</h1>
+          <p>
+            Discover the ultimate fitness experience with our state-of-the-art
+            facilities. Whether you're a beginner or an athlete, our expert
+            trainers and personalized programs ensure your journey to a
+            healthier lifestyle is enjoyable and effective.
+          </p>
+          <div class="features">
+            <h3>Why Choose Us?</h3>
+            <ul>
+              <li><i class="fas fa-dumbbell"></i> Expert Guidance</li>
+              <li><i class="fas fa-heartbeat"></i> Personalized Service</li>
+              <li><i class="fas fa-running"></i> Hassle-Free Process</li>
+              <li><i class="fas fa-dollar-sign"></i> Competitive Pricing</li>
+            </ul>
+          </div>
+          <a href="#about-section" class="cta-button"
+            >Please be a part of our community</a
+          >
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-collage">
+            <img src="./1192344.webp" alt="Gym Image 1" />
+            <img src="./298598.jpg" alt="Gym Image 2" />
+            <img
+              src="./iblcsxcrrsyk5q1od294ouwgrtupdxmi11fsjeoermvh8tn6vzfupmaz25w68mzr-o.avif"
+              alt="Gym Image 3"
+            />
+            <img src="./Womens-Gym.jpg" alt="Gym Image 4" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="marquee-container">
+      <hr class="h" />
+      <div class="marquee">
+        <div class="marquee-content">
+          <span class="marquee-text"
+            >Let's optimize your fitness and nutrition journey ✨</span
+          >
+          <span class="marquee-text"
+            >Let's optimize your fitness and nutrition journey ✨</span
+          >
+          <span class="marquee-text"
+            >Let's optimize your fitness and nutrition journey ✨</span
+          >
+          <span class="marquee-text"
+            >Let's optimize your fitness and nutrition journey ✨</span
+          >
+          <span class="marquee-text"
+            >Let's optimize your fitness and nutrition journey ✨</span
+          >
+        </div>
+      </div>
+      <hr class="h" />
+    </div>
+
+    <section class="about" id="about-section">
+      <fieldset>
+        <legend>
+          <h2 class="about">About FitFusionHub</h2>
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+        </legend>
+        <p class="one">
+          1. FitFusionHub is a platform dedicated to fitness enthusiasts of all
+          levels, providing a variety of workouts, nutrition tips, and expert
+          advice.
+        </p>
+        <p class="two">
+          2. Whether you're a beginner looking to get started or a seasoned
+          athlete aiming to enhance performance, FitFusionHub offers tailored
+          solutions to meet your fitness goals.
+        </p>
+        <div class="first">
+          <h3>Our Mission</h3>
+          <p class="para">
+            To empower individuals to achieve their fitness aspirations through
+            accessible and effective training programs.
+          </p>
+        </div>
+        <div class="second">
+          <h3>Our Vision</h3>
+          <p class="para">
+            To create a community where health and wellness are prioritized,
+            inspiring people to lead healthier and happier lives.
+          </p>
+        </div>
+        <div class="third">
+          <h3>Our Approach</h3>
+          <p class="para">
+            We believe in a holistic approach to fitness, combining workouts,
+            nutrition, and lifestyle habits to promote sustainable results.
+          </p>
+        </div>
+      </fieldset>
+    </section>
+
+    <hr class="hill" />
+
+    <main class="main-container">
+      <section class="glass-section">
+        <div class="glass-container">
+          <h2>Achieve your goal!</h2>
+          <p>
+            We provide various fitness plans to suit individuals and groups.
+          </p>
+          <div class="flex-wrapper">
+            <div class="flex-card" data-category="Personal Training">
+              <h3>Personal Training</h3>
+
+              <a href="#" onclick="trackSession('Personal Training')"
+                >Learn more &gt;</a
+              >
+            </div>
+            <div class="flex-card" data-category="Group Classes">
+              <h3>Group Classes</h3>
+
+              <a href="#" onclick="trackSession('Group Classes')"
+                >Learn more &gt;</a
+              >
+            </div>
+            <div class="flex-card" data-category="Nutrition Plans">
+              <h3>Nutrition Plans</h3>
+
+              <a href="#" onclick="trackSession('Nutrition Plans')"
+                >Learn more &gt;</a
+              >
+            </div>
+            <div class="flex-card" data-category="Wellness Programs">
+              <h3>Wellness Programs</h3>
+
+              <a href="#" onclick="trackSession('Wellness Programs')"
+                >Learn more &gt;</a
+              >
+            </div>
+            <div class="flex-card" data-category="Online Coaching">
+              <h3>Online Coaching</h3>
+
+              <a href="#" onclick="trackSession('Online Coaching')"
+                >Learn more &gt;</a
+              >
+            </div>
+            <div class="flex-card" data-category="Recovery & Rehabilitation">
+              <h3>Recovery & Rehabilitation</h3>
+
+              <a href="#" onclick="trackSession('Recovery & Rehabilitation')"
+                >Learn more &gt;</a
+              >
+            </div>
+          </div>
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+        </div>
+      </section>
+    </main>
+
+    <hr class="hill" />
+    <main>
+      <div class="contact-section">
+        <div class="top-left corner"></div>
+        <div class="top-right corner"></div>
+        <div class="bottom-left corner"></div>
+        <div class="bottom-right corner"></div>
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+          <h2>Have Questions?</h2>
+          <p>
+            Please feel free to call or email us, or use our contact form to get
+            in touch with us. We look forward to hearing from you!
+          </p>
+          <h3>Emergency? Call Us:</h3>
+          <p>+1234567890</p>
+          <h3>Send Us Mail</h3>
+          <p>info@example.com</p>
+          <h3>Find the Studio</h3>
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1153158491427!2d72.84720331494633!3d21.197541185909917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be05185d24ad675%3A0x23e7d8c0d9476d8b!2sSurat%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2sus!4v1613982131990!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email Address" />
+            <input type="text" placeholder="Subject" />
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <hr class="hill" />
+    <main>
+      <div class="services-section">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        <h1>Our Services</h1>
+        <div class="service-items">
+          <div class="service-item">
+            <div class="service-icon">
+              <img src="./FitFusionHub_transparent.png" alt="Service Icon 1" />
+            </div>
+            <h3>Service 1</h3>
+            <p>
+              Description of Service 1 goes here. You can add more details if
+              needed.
+            </p>
+            <button class="service-button">Learn More</button>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">
+              <img src="./FitFusionHub_transparent.png" alt="Service Icon 2" />
+            </div>
+            <h3>Service 2</h3>
+            <p>
+              Description of Service 2 goes here. You can add more details if
+              needed.
+            </p>
+            <button class="service-button">Learn More</button>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">
+              <img src="./FitFusionHub_transparent.png" alt="Service Icon 3" />
+            </div>
+            <h3>Service 3</h3>
+            <p>
+              Description of Service 3 goes here. You can add more details if
+              needed.
+            </p>
+            <button class="service-button">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <hr class="hill" />
+    <main>
+      <section class="know-yourself-section">
+        <div class="container3">
+          <h2>Know Yourself</h2>
+          <p>
+            Discover your inner potential and unlock new possibilities with our
+            personalized insights and guidance. Embrace the journey of
+            self-discovery and become the best version of yourself.
+          </p>
+          <div class="info">
+            <h3>Let's get some of your information</h3>
+          </div>
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+        </div>
+      </section>
+    </main>
+
+    <hr class="hill" />
+
+    <div class="outer-container">
+      <div class="container">
+        <div class="testimonial-title">
+          <h2>See what our customers are saying about us</h2>
+          <p>
+            We put our customers' opinions first and do our best for their
+            satisfaction. Go ahead to check some of them!
+          </p>
+        </div>
+        <div class="testimonial-slider">
+          <div class="testimonial active">
+            <p class="name">Samantha Carter</p>
+            <p>
+              We are delighted with the services provided by this agency. They
+              carefully research and understand what our startup needs to grow
+              to the next level. They are one of the leaders of their industry
+              and keep growing with innovative strategies.
+            </p>
+          </div>
+          <div class="testimonial">
+            <p class="name">Lilie Lewis</p>
+            <p>
+              This Marketing Agency has gone beyond our expectations ever since
+              we use their services. We are so excited about the social media
+              growth we experienced and will continue collaborating with this
+              awesome team. Our company extremely recommends!
+            </p>
+          </div>
+          <div class="testimonial">
+            <p class="name">Benjamin Smith</p>
+            <p>
+              This Marketing Agency has been a trusted partner since the early
+              stages of our app. It's hard to find such huge support and
+              dedication that they've put into our project. Their professional
+              team has saved us time and money. Forever your clients!
+            </p>
+          </div>
+          <div class="testimonial">
+            <p class="name">Ansh Sharma</p>
+            <p>
+              This Marketing Agency has been a trusted partner since the early
+              stages of our app. It's hard to find such huge support and
+              dedication that they've put into our project. Their professional
+              team has saved us time and money. Forever your clients!
+            </p>
+          </div>
+          <div class="dots">
+            <button class="active"></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="hill" />
+    <footer>
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1153158491427!2d72.84720331494633!3d21.197541185909917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be05185d24ad675%3A0x23e7d8c0d9476d8b!2sSurat%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2sus!4v1613982131990!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        >
+        </iframe>
+      </div>
+
+      <div class="footer-content">
+        <div>
+          <h3>About FitFusionHub</h3>
+          <p>
+            FitFusionHub is your go-to platform for all things fitness. We offer
+            a variety of resources to help you stay healthy and fit. From
+            workout plans to nutrition advice, our goal is to support your
+            fitness journey.
+          </p>
+        </div>
+        <div>
+          <h3>Contact Us</h3>
+          <ul>
+            <li>
+              Email:
+              <a href="mailto:info@fitfusionhub.com">info@fitfusionhub.com</a>
+            </li>
+            <li>Phone: <a href="tel:+8168754874">8168754874</a></li>
+            <li>Address: 123 Fitness St, Health City, Wellness State</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="newsletter-signup">
+          <h3>Newsletter</h3>
+          <form action="/subscribe" method="POST">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="social-media" style="margin: 40px 0">
+        <a href="https://facebook.com" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 FitFusionHub. All rights reserved.</p>
+        <span>RA</span>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("subscribeForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+          const response = await fetch("/subscribe", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            alert(result.message);
+            window.location.href = "/";
+          } else {
+            alert(result.message);
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitFusionHub - Feedback Form</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #f7f9fc;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        max-width: 600px;
+        width: 100%;
+        background: linear-gradient(135deg, #ffffff, #e6e9f0);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        animation: slideIn 1s ease-in-out;
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      h1 {
+        color: #333;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      p {
+        color: #555;
+        font-size: 1.1em;
+        margin-bottom: 25px;
+      }
+      .form-group {
+        margin-bottom: 25px;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 16px;
+        border: 2px solid #dcdcdc;
+        border-radius: 8px;
+        font-size: 1em;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        outline: none;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        border-color: #6c5b7b;
+        box-shadow: 0 0 8px rgba(108, 91, 123, 0.3);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 140px;
+      }
+      button {
+        background: #6c5b7b;
+        color: #ffffff;
+        border: 2px solid #6c5b7b;
+        padding: 15px 30px;
+        font-size: 1.1em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease,
+          border-color 0.3s ease;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      button:hover {
+        background: #543c6a;
+        border-color: #543c6a;
+        transform: scale(1.05);
+      }
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background: #ffffff;
+        color: #888888;
+        margin-top: 20px;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .message {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ffffff;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        display: none;
+        font-size: 1em;
+        font-weight: 600;
+        max-width: 300px;
+        text-align: center;
+        animation: fadeInUp 0.5s ease-in-out;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .message.success {
+        color: #4caf50;
+        border: 2px solid #4caf50;
+        animation: bounceIn 1s ease-in-out;
+      }
+      .message.error {
+        color: #f44336;
+        border: 2px solid #f44336;
+        animation: shake 0.5s ease-in-out;
+      }
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        50% {
+          transform: translateX(10px);
+        }
+        75% {
+          transform: translateX(-10px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Share Your Feedback</h1>
+      <p>
+        We value your input and would love to hear your thoughts on
+        FitFusionHub. Please fill out the form below.
+      </p>
+      <form id="feedbackForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Feedback"
+            required
+          ></textarea>
+        </div>
+        <button type="submit">Send Feedback</button>
+        <div id="responseMessage" class="message"></div>
+      </form>
+    </div>
+    <div class="footer">
+      <p>© 2024 FitFusionHub. All rights reserved.</p>
+    </div>
+    <script>
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+          const data = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            message: formData.get("message"),
+          };
+
+          const responseMessage = document.getElementById("responseMessage");
+          responseMessage.classList.remove("success", "error");
+
+          try {
+            const response = await fetch("/api/feedback", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            if (response.ok) {
+              responseMessage.classList.add("success");
+              responseMessage.innerHTML = `
+                            Thank you for your feedback! 
+                            <span class="redirect">You will be redirected to your dashboard shortly.</span>
+                        `;
+              this.reset();
+              setTimeout(() => {
+                window.location.href = "/dashboard";
+              }, 5000);
+            } else {
+              responseMessage.classList.add("error");
+              responseMessage.textContent =
+                result.error || "An error occurred. Please try again later.";
+            }
+          } catch (error) {
+            responseMessage.classList.add("error");
+            responseMessage.textContent =
+              "An error occurred. Please try again later.";
+          }
+          responseMessage.style.display = "block";
+          responseMessage.classList.add("animate");
+          setTimeout(() => responseMessage.classList.remove("animate"), 500);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futuristic Yoga Asanas Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Global reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        width: 90%;
+        height: 90%;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        display: flex;
+      }
+      .sidebar {
+        width: 100px;
+        background-color: #2c3e50;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+        transition: width 0.3s ease;
+      }
+      .sidebar:hover {
+        width: 200px;
+      }
+      .sidebar-title {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #fff;
+        text-align: center;
+      }
+      .asana-item {
+        padding: 10px;
+        background-color: #34495e;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+      }
+      .asana-item:hover {
+        background-color: #2c3e50;
+      }
+      .asana-item .asana-title {
+        font-size: 0.8rem;
+        color: #fff;
+        text-align: center;
+        flex: 1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .additional-options {
+        font-size: 0.9rem;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #34495e;
+        margin-top: auto;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .additional-options:hover {
+        background-color: #2c3e50;
+      }
+      .options-container {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .options-container.active {
+        display: flex;
+      }
+      .option {
+        padding: 10px;
+        background-color: #34495e;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .option:hover {
+        background-color: #2c3e50;
+      }
+      .option .option-title {
+        font-size: 0.8rem;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .main-content {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px; /* Perspective for 3D effects */
+        background-color: #f0f0f0;
+        position: relative;
+      }
+      .asana-details {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        max-width: 80%;
+        text-align: center;
+        display: none; /* Initially hidden */
+        transform: translateY(50px);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.3s ease;
+      }
+      .asana-details.active {
+        display: block; /* Show when active */
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .asana-details .asana-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+        text-transform: uppercase;
+      }
+      .asana-details .asana-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #666;
+      }
+      .asana-image {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding-top: 20px;
+      }
+      .gallery-item {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 80%;
+        max-height: 80%;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #555;
+      }
+
+      .close:hover {
+        color: #333;
+      }
+
+      .timer-container {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .timer-display {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .progress-bar {
+        height: 10px;
+        background-color: #ddd;
+        width: 100%; /* Ensure the progress bar spans the full width */
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      .timer-controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .timer-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #34495e;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .timer-button:hover {
+        background-color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-title">Yoga Asanas</div>
+        <div class="asana-item" onclick="showAsana(1)">
+          <div class="asana-title">Yoga Asana 1</div>
+        </div>
+        <div class="asana-item" onclick="showAsana(2)">
+          <div class="asana-title">Yoga Asana 2</div>
+        </div>
+        <div class="asana-item" onclick="showAsana(3)">
+          <div class="asana-title">Yoga Asana 3</div>
+        </div>
+        <div class="additional-options" onclick="toggleOptions()">
+          More Options
+        </div>
+        <div class="options-container" id="optionsContainer">
+          <div class="option" onclick="openGallery()">
+            <div class="option-title">View Gallery</div>
+          </div>
+          <div class="option" onclick="showTimer()">
+            <div class="option-title">Yoga Timer</div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div id="asana-1" class="asana-details">
+          <div class="asana-title">Yoga Asana 1</div>
+          <img src="yoga_image_1.jpg" alt="Yoga Asana 1" class="asana-image" />
+          <div class="asana-description">
+            <p>
+              This yoga pose helps in improving flexibility and strengthening
+              the core muscles. It also helps in calming the mind and reducing
+              stress.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in
+              lorem ac purus lacinia pharetra.
+            </p>
+          </div>
+        </div>
+        <div id="asana-2" class="asana-details">
+          <div class="asana-title">Yoga Asana 2</div>
+          <img src="yoga_image_2.jpg" alt="Yoga Asana 2" class="asana-image" />
+          <div class="asana-description">
+            <p>
+              This yoga pose focuses on balance and stability. It strengthens
+              the legs and improves posture.
+            </p>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+        </div>
+        <div id="asana-3" class="asana-details">
+          <div class="asana-title">Yoga Asana 3</div>
+          <img src="yoga_image_3.jpg" alt="Yoga Asana 3" class="asana-image" />
+          <div class="asana-description">
+            <p>
+              This yoga pose helps in stretching the spine and improving
+              flexibility in the back muscles.
+            </p>
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function showAsana(asanaNumber) {
+        // Hide all asana details
+        const asanas = document.querySelectorAll(".asana-details");
+        asanas.forEach((asana) => {
+          asana.classList.remove("active");
+        });
+
+        // Show the selected asana
+        const selectedAsana = document.getElementById(`asana-${asanaNumber}`);
+        selectedAsana.classList.add("active");
+      }
+
+      function toggleOptions() {
+        const optionsContainer = document.getElementById("optionsContainer");
+        optionsContainer.classList.toggle("active");
+      }
+
+      function openGallery() {
+        const modal = document.createElement("div");
+        modal.classList.add("modal");
+        modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div class="gallery-container">
+            <div class="gallery-item">
+              <img src="gallery_image_1.jpg" alt="Gallery Image 1">
+            </div>
+            <div class="gallery-item">
+              <img src="gallery_image_2.jpg" alt="Gallery Image 2">
+            </div>
+            <div class="gallery-item">
+              <img src="gallery_image_3.jpg" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item">
+              <img src="gallery_image_4.jpg" alt="Gallery Image 4">
+            </div>
+            <div class="gallery-item">
+              <img src="gallery_image_5.jpg" alt="Gallery Image 5">
+            </div>
+          </div>
+        </div>
+      `;
+        document.body.appendChild(modal);
+      }
+
+      function closeModal() {
+        const modal = document.querySelector(".modal");
+        modal.remove();
+      }
+
+      let timerInterval;
+      let timerRunning = false;
+      let timeInSeconds = 0;
+      let timerSound = new Audio("notification.mp3"); // Adjust path to your notification sound file
+
+      function showTimer() {
+        const modal = document.createElement("div");
+        modal.classList.add("modal");
+        modal.innerHTML = `
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="timer-container">
+              <div id="timerDisplay" class="timer-display">00:00:00</div>
+              <div id="progressBar" class="progress-bar"></div>
+              <div class="timer-controls">
+                <button id="startTimerBtn" class="timer-button">Start</button>
+                <button id="pauseTimerBtn" class="timer-button">Pause</button>
+                <button id="resetTimerBtn" class="timer-button">Reset</button>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+
+        document
+          .getElementById("startTimerBtn")
+          .addEventListener("click", startTimer);
+        document
+          .getElementById("pauseTimerBtn")
+          .addEventListener("click", pauseTimer);
+        document
+          .getElementById("resetTimerBtn")
+          .addEventListener("click", resetTimer);
+      }
+
+      function startTimer() {
+        if (!timerRunning) {
+          timerInterval = setInterval(updateTimer, 1000);
+          timerRunning = true;
+        }
+      }
+
+      function pauseTimer() {
+        clearInterval(timerInterval);
+        timerRunning = false;
+      }
+
+      function resetTimer() {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        timeInSeconds = 0;
+        updateTimerDisplay();
+        updateProgressBar(0);
+      }
+
+      function updateTimer() {
+        timeInSeconds++;
+        updateTimerDisplay();
+        updateProgressBar(timeInSeconds);
+        checkTimerCompletion();
+      }
+
+      function updateTimerDisplay() {
+        const hours = Math.floor(timeInSeconds / 3600);
+        const minutes = Math.floor((timeInSeconds % 3600) / 60);
+        const seconds = timeInSeconds % 60;
+
+        const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        document.getElementById("timerDisplay").textContent = formattedTime;
+      }
+
+      function updateProgressBar(currentTime) {
+        const progressBar = document.getElementById("progressBar");
+        const percentage = (currentTime / 60) * 100; // Assuming a max of 1 minute for the progress bar
+
+        progressBar.style.width = `${percentage}%`;
+      }
+
+      function checkTimerCompletion() {
+        if (timeInSeconds >= 60) {
+          // Change this value as needed
+          timerSound.play(); // Play notification sound when timer completes
+          // Additional actions upon timer completion can be added here
+        }
+      }
+    </script>
+  </body>
+</html>

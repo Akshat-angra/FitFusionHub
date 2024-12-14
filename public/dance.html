@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dance Classes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset and basic styling */
+      body {
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .sidebar {
+        background-color: #444;
+        color: #fff;
+        padding: 20px;
+      }
+      .sidebar a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px 0;
+        transition: background-color 0.3s;
+      }
+      .sidebar a:hover {
+        background-color: #555;
+      }
+      .content {
+        padding: 20px;
+      }
+      section {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #333;
+        color: #fff;
+      }
+      tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .container {
+          border-radius: 0;
+          box-shadow: none;
+        }
+        .content {
+          border-radius: 0;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>Dance Classes</header>
+      <div class="sidebar">
+        <a href="#intro">Introduction</a>
+        <a href="#styles">Dance Styles</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#schedule">Class Schedule</a>
+      </div>
+      <div class="content">
+        <section id="intro">
+          <h2>Introduction</h2>
+          <p>
+            Welcome to our dance classes! Whether you're a beginner or an
+            experienced dancer, we have something for everyone. Join us to
+            explore the joy and creativity of dance in a fun and supportive
+            environment.
+          </p>
+        </section>
+
+        <section id="styles">
+          <h2>Dance Styles</h2>
+          <table>
+            <tr>
+              <th>Style</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Ballet</td>
+              <td>
+                A classical dance form characterized by grace and precision.
+              </td>
+            </tr>
+            <tr>
+              <td>Hip Hop</td>
+              <td>
+                Urban dance style known for its high-energy moves and street
+                culture influence.
+              </td>
+            </tr>
+            <tr>
+              <td>Contemporary</td>
+              <td>
+                A blend of ballet and modern dance, focusing on expression and
+                emotion.
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="benefits">
+          <h2>Benefits of Dance</h2>
+          <ul>
+            <li>Improves flexibility, strength, and endurance.</li>
+            <li>Enhances coordination, balance, and posture.</li>
+            <li>Boosts mood and reduces stress through rhythmic movement.</li>
+            <li>Fosters creativity and self-expression.</li>
+            <li>Builds confidence and social skills.</li>
+          </ul>
+        </section>
+
+        <section id="schedule">
+          <h2>Class Schedule</h2>
+          <table>
+            <tr>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Class Type</th>
+            </tr>
+            <tr>
+              <td>Monday</td>
+              <td>5:00 PM - 6:00 PM</td>
+              <td>Ballet</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>6:00 PM - 7:00 PM</td>
+              <td>Hip Hop</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>4:00 PM - 5:00 PM</td>
+              <td>Contemporary</td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

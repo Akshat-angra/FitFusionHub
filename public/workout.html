@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Workout Plan</title>
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f4f8;
+        color: #333;
+        display: flex;
+      }
+      header {
+        text-align: center;
+        padding: 20px;
+        background-color: #007bff;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+      }
+      .sidebar {
+        width: 250px;
+        background-color: #ffffff;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .sidebar a {
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #333;
+        display: block;
+        transition: 0.3s;
+      }
+      .sidebar a:hover {
+        background-color: #f1f1f1;
+      }
+      .container {
+        margin-left: 250px;
+        padding: 20px;
+        width: calc(100% - 250px);
+      }
+      section {
+        margin: 20px 0;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      ul {
+        list-style-type: disc;
+        margin: 10px 0 20px 20px;
+      }
+      .svg-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      .svg-container {
+        display: flex;
+        align-items: center;
+      }
+      @media (max-width: 600px) {
+        .container {
+          margin-left: 0;
+          width: 100%;
+        }
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .sidebar a {
+          float: left;
+        }
+        .sidebar a:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .home {
+        color: #007bff;
+      }
+      .home:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <header>Workout Guide</header>
+      <a href="#intro">Introduction</a>
+      <a href="#types">Types of Workouts</a>
+      <a href="#tips">Workout Tips</a>
+      <a href="#plan">Weekly Plan</a>
+      <a href="/" class="home">Home</a>
+    </div>
+    <div class="container">
+      <section id="intro">
+        <h2>Introduction</h2>
+        <div class="svg-container">
+          <img
+            class="svg-icon"
+            src="https://www.svgrepo.com/show/196709/yoga.svg"
+            alt="Yoga SVG"
+          />
+          <p>
+            Welcome to your professionally crafted workout plan. This plan is
+            designed by top trainers to help you achieve your fitness goals.
+            Whether you're aiming to build muscle, lose weight, or improve
+            overall fitness, this guide is tailored for you.
+          </p>
+        </div>
+      </section>
+
+      <section id="types">
+        <h2>Types of Workouts</h2>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Illustration</th>
+          </tr>
+          <tr>
+            <td>Cardio</td>
+            <td>
+              Excellent for burning calories and improving cardiovascular
+              health. Examples include running, cycling, and HIIT.
+            </td>
+            <td>
+              <img
+                class="svg-icon"
+                src="https://www.svgrepo.com/show/19310/running.svg"
+                alt="Cardio SVG"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Strength Training</td>
+            <td>
+              Builds muscle and enhances strength through weightlifting,
+              resistance bands, and bodyweight exercises.
+            </td>
+            <td>
+              <img
+                class="svg-icon"
+                src="https://www.svgrepo.com/show/92088/dumbbell.svg"
+                alt="Strength Training SVG"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Flexibility</td>
+            <td>
+              Improves range of motion and prevents injuries. Yoga and
+              stretching exercises are ideal.
+            </td>
+            <td>
+              <img
+                class="svg-icon"
+                src="https://www.svgrepo.com/show/196709/yoga.svg"
+                alt="Flexibility SVG"
+              />
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="tips">
+        <h2>Workout Tips</h2>
+        <ul>
+          <li>Warm up before starting your workout to prepare your muscles.</li>
+          <li>Stay hydrated by drinking plenty of water.</li>
+          <li>Maintain proper form to avoid injuries.</li>
+          <li>Cool down after your workout with some light stretching.</li>
+          <li>Listen to your body and rest when needed.</li>
+        </ul>
+      </section>
+
+      <section id="plan">
+        <h2>Weekly Workout Plan</h2>
+        <table>
+          <tr>
+            <th>Day</th>
+            <th>Workout</th>
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>
+              30 minutes of cardio (running or cycling) + 20 minutes of core
+              exercises
+            </td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Strength training (upper body) + 10 minutes of stretching</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Yoga or Pilates for 30 minutes</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>30 minutes of HIIT + 15 minutes of flexibility exercises</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Strength training (lower body) + 10 minutes of stretching</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>Rest day or light activity (walking or gentle yoga)</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>
+              Full-body workout combining cardio and strength training for 45
+              minutes
+            </td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

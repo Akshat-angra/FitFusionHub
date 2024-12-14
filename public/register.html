@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register to FitFusionHub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <nav>
+        <img src="./FitFusionHub_transparent.png" alt="FitFusion logo" />
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="nav-items">
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+          <li><a href="#training-section">Training</a></li>
+          <li><a href="#community-section">Community</a></li>
+          <li><a href="#know-yourself-section">Know Yourself</a></li>
+        </ul>
+        <div class="login"><a href="/login">Login/Create Account</a></div>
+      </nav>
+    </div>
+    <hr />
+    <div class="view">
+      <a href="/">Home</a>
+    </div>
+    <div class="container1">
+      <div class="login-form">
+        <h1>Sign Up</h1>
+        <div class="signup">
+          Already have an account? <a href="/login">Sign In</a>
+          <hr class="view1" />
+        </div>
+        <form action="/register" method="POST">
+          <label for="displayName"
+            >Display Name<span class="req">REQUIRED</span></label
+          >
+          <input
+            type="text"
+            id="displayName"
+            name="displayName"
+            placeholder="Display Name"
+            required
+          />
+          <label for="email"
+            >Email Address<span class="req">REQUIRED</span></label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <label for="password"
+            >Password<span class="req">REQUIRED</span></label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <label for="confirmPassword"
+            >Confirm Password<span class="req">REQUIRED</span></label
+          >
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+          <!-- <div class="remember-me">
+            <input type="checkbox" id="remember" name="remember" required />
+            <label for="remember"
+              >I agree to the Terms of Use and Privacy Policy<br /><span
+                class="req"
+                >REQUIRED</span
+              ></label
+            >
+          </div> -->
+          <div class="note">Not recommended on shared computers</div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

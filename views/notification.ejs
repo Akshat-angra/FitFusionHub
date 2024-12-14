@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notification</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Ubuntu", sans-serif;
+        background: linear-gradient(135deg, #e2e2e2, #ffffff);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .notification {
+        max-width: 500px;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        position: relative;
+        animation: fadeInUp 0.7s ease-out;
+        border-left: 8px solid transparent;
+        transition: border-left-color 0.3s ease, background-color 0.3s ease;
+      }
+      .notification.success {
+        border-left-color: #4caf50;
+        background: linear-gradient(145deg, #e8f5e9, #d0f4de);
+      }
+      .notification.error {
+        border-left-color: #f44336;
+        background: linear-gradient(145deg, #fbe9e7, #f2d7d9);
+      }
+      .notification h1 {
+        margin: 0 0 15px;
+        font-size: 24px;
+        color: #333;
+        font-weight: 700;
+      }
+      .notification p {
+        font-size: 18px;
+        color: #555;
+        margin: 0;
+      }
+      .notification .countdown {
+        font-weight: 700;
+        color: #007bff;
+        font-size: 22px;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 600px) {
+        .notification {
+          padding: 20px;
+        }
+        .notification h1 {
+          font-size: 20px;
+        }
+        .notification p {
+          font-size: 16px;
+        }
+        .notification .countdown {
+          font-size: 20px;
+        }
+      }
+    </style>
+    <script>
+      let countdown = 5;
+      function updateCountdown() {
+        document.getElementById("countdown").innerText = countdown;
+        if (countdown > 0) {
+          countdown--;
+          setTimeout(updateCountdown, 1000);
+        } else {
+          window.location.href = "/";
+        }
+      }
+      window.onload = updateCountdown;
+    </script>
+  </head>
+  <body>
+    <div class="notification <%= success ? 'success' : 'error' %>">
+      <h1><%= message %></h1>
+      <p>
+        You will be redirected to the home page in
+        <span id="countdown" class="countdown">5</span> seconds.
+      </p>
+    </div>
+  </body>
+</html>
